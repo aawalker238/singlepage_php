@@ -66,6 +66,48 @@ $(document).ready(function(){
 		$(this.element).css({"opacity":1})
 	}, {
 		offset: "70%"
+	});
+
+	$("#form").bootstrapValidator({
+		message: "This value is not valid",
+		feedbackIcons: {
+			valid: "glyphicon glyphicon-ok",
+			invalid: "glyphicon glyphicon-remove",
+			validating: "glyphicon glyphicon-refresh",
+		},
+		fields: {
+			name: {
+				validators: {
+					notEmpyt: {
+						message: "This field is required"
+					}
+				}
+			},
+			email: {
+				validators: {
+					notEmpyt: {
+						message: "This field is required"
+					},
+					emailAddress: {
+						message: "This is not a valid email address"
+					}
+				}
+			},
+			message: {
+				validators: {
+					notEmpyt: {
+						message: "Please enter a message"
+					}
+				}
+			}
+		}
+	}).on("success.form.bv", function(e) {
+		e.preventDefault();
+		var $form = $(e.target);
+		var bv = $form.data("bootstrapValidator");
+		$.post($form.attr("action"), $form.serialize(), function(result){
+			console.log(result);
+		},"json");
 	});	
 
 });
