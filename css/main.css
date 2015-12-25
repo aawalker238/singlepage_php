@@ -376,9 +376,42 @@ footer p {
     -webkit-animation-delay: .6s;
 }
 
+.has-success .form-control-feedback {
+    color: #fff;
+    background-color: green;
+    border-radius: 50%;
+    /*border: 2px solid green;*/
+}
 
+.has-error .form-control-feedback {
+    color: #fff;
+    background-color: red;
+    border-radius: 50%;
+    /*border: 2px solid green;*/
+}
 
+.form-horizontal .has-feedback .form-control-feedback {
+    top: 8px!important;
+    right: 22px!important;
+    font-size: 1.5em;
+}
 
+.has-error .help-block {
+    background-color: red;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#ok {
+    display: none;
+    color: #fff;
+    font-size: 1.5em;
+    background-color: green;
+    padding: 10px;
+    border-radius: 20px;
+    text-align: center;
+}
 
 
 

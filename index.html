@@ -249,13 +249,13 @@
 
                         <div class="item-feature row">
                             <div class="content col-sm-8 col-sm-push-4 text-right">
-                                <h4>Android</h4>
+                                <h4>Python</h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                             </div>
                             <div class="col-sm-4 col-sm-pull-8">
                                 <div class="blue-circle animation2">
                                     <div>
-                                        <i class="fa fa-android"></i>
+                                        <i class="icon-python"></i>
                                     </div>
                                 </div>
                             </div>
@@ -360,7 +360,7 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                     <!-- FORM -->
-                        <form id="form" action="ajaxSubmit.php">
+                        <form id="supportForm" method="post" action="ajaxSubmit.php" class="form-horizontal">
                             <!-- NAME -->
                             <div class="form-group">
                                 <input type="name" class="form-control" id="" placeholder="Name..." name="name" required>
@@ -377,6 +377,9 @@
                             <div class="form-group">
                                 <input class="btn btn-default" type="submit" value="Submit">
                             </div>
+                            <div id="ok">
+                                Your message has been successfully sent!
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -390,6 +393,7 @@
 
         <!-- SCRIPTS -->
         <script src="js/vendor/jquery-1.11.2.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/smooth-scroll.js"></script>

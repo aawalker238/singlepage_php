@@ -68,47 +68,95 @@ $(document).ready(function(){
 		offset: "70%"
 	});
 
-	$("#form").bootstrapValidator({
-		message: "This value is not valid",
-		feedbackIcons: {
-			valid: "glyphicon glyphicon-ok",
-			invalid: "glyphicon glyphicon-remove",
-			validating: "glyphicon glyphicon-refresh",
-		},
-		fields: {
-			name: {
-				validators: {
-					notEmpyt: {
-						message: "This field is required"
-					}
-				}
-			},
-			email: {
-				validators: {
-					notEmpyt: {
-						message: "This field is required"
+// BOOTSTRAP VALIDATOR
+			$('#supportForm').bootstrapValidator({
+				message: "That´s no valid!",
+				feedbackIcons: {
+					valid: 'glyphicon glyphicon-ok',
+					invalid: 'glyphicon glyphicon-remove',
+					validating: 'glyphicon glyphicon-refresh'
+				},
+				fields: {
+					name: {
+						validators: {
+							notEmpty: {
+								message: "This field is mandatory and cannot be empty"
+							},
+						}
 					},
-					emailAddress: {
-						message: "This is not a valid email address"
+					email: {
+						validators: {
+							notEmpty: {
+								message: "This field is mandatory and cannot be empty"
+							},
+							emailAddress: {
+								message: "That doesn´t look like an e-mail address"
+							}
+						}
+					},
+					messageField: {
+						validators: {
+							notEmpty: {
+								message: "The Message Cannot be empty!"
+							}
+						}
 					}
 				}
-			},
-			message: {
-				validators: {
-					notEmpyt: {
-						message: "Please enter a message"
-					}
-				}
-			}
-		}
-	}).on("success.form.bv", function(e) {
-		e.preventDefault();
-		var $form = $(e.target);
-		var bv = $form.data("bootstrapValidator");
-		$.post($form.attr("action"), $form.serialize(), function(result){
-			console.log(result);
-		},"json");
-	});	
+			}).on('success.form.bv', function(e) {
+				e.preventDefault();
+
+				var $form = $(e.target);
+
+				var bv = $form.data('bootstrapValidator');
+
+				$.post($form.attr('action'), $form.serialize(), function(result) {
+					$('#ok').fadeIn();
+					console.log(result);
+				}, 'json' );
+
+			});
+	// $("#supportForm").bootstrapValidator({
+	// 	message: "This value is not valid",
+	// 	feedbackIcons: {
+	// 		valid: "glyphicon glyphicon-ok",
+	// 		invalid: "glyphicon glyphicon-remove",
+	// 		validating: "glyphicon glyphicon-refresh",
+	// 	},
+	// 	fields: {
+	// 		name: {
+	// 			validators: {
+	// 				notEmpyt: {
+	// 					message: "This field is required"
+	// 				}
+	// 			}
+	// 		},
+	// 		email: {
+	// 			validators: {
+	// 				notEmpyt: {
+	// 					message: "This field is required"
+	// 				},
+	// 				emailAddress: {
+	// 					message: "This is not a valid email address"
+	// 				}
+	// 			}
+	// 		},
+	// 		message: {
+	// 			validators: {
+	// 				notEmpyt: {
+	// 					message: "Please enter a message"
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }).on("success.form.bv", function(e) {
+	// 	e.preventDefault();
+	// 	var $form = $(e.target);
+	// 	var bv = $form.data("bootstrapValidator");
+	// 	$.post($form.attr("action"), $form.serialize(), function(result){
+	// 		$('#ok').fadeIn();
+	// 		console.log(result);
+	// 	},"json");
+	// });	
 
 });
 
